@@ -68,6 +68,9 @@ build/
 
 # Maven specific
 target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
 #Skip all SVN related
 .svn/
