@@ -1,20 +1,82 @@
-### IntelliJ IDEA ###
+# Gradle
+# ------
+.gradle
+/build
+
+# IDEA
+# ----
 .idea
+.idea/
+.shelf
+/*.iml
+/*.ipr
+/*.iws
+/out
 *.iws
 *.iml
 *.ipr
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
+
+/out/*.*
+
 HELP.md
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+
+# Eclipse
+# -------
+*.classpath
+*.project
+*.settings
+
+/bin
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# Eclipse Core
+.project
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Logs
+# ----
+/*.log
+
+# Others
+# ----
+**/*.class
+**/*.bin
+**/*.build
+**/*.out
+build
+build/
+**/*.jar
+
+# Maven specific
+target/
+
+#Skip all SVN related
+.svn/
+.svn/entries
+.svn*
+*/.svn/*
+
+#Skip all CVS related
+CVS/
+/CVS/*
+**/CVS/*
+.cvsignore
+*/.cvsignore
