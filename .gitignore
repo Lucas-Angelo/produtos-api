@@ -2,6 +2,7 @@
 # ------
 .gradle
 /build
+.mvn/wrapper
 
 # IDEA
 # ----
