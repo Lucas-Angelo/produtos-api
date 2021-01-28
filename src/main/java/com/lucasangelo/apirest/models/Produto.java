@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity // Pois vai ser um enteidade do banco de dados
-@Table(name="PRODUTOS") // Nome da tabela no banco de dados
+@Table(name="TB_PRODUTOS") // Nome da tabela no banco de dados
 public class Produto implements Serializable {
 
     private static final long serialVersionUID = 1L;
