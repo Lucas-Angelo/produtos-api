@@ -1,8 +1,4 @@
 language: java
 jdk: openjdk11
-services:
-  - postgresql
 before_install:
   - chmod +x mvnw
-before_script:
-  - psql -c 'create database produtos-apirest;' -U postgres
