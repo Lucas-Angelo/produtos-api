@@ -14,7 +14,7 @@ import java.util.List;
 public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 	Produto findById(long id);
 
-	@Query(value = "SELECT * FROM tb_produtos WHERE valor BETWEEN ?1 AND ?2", nativeQuery = true)
+	@Query(value = "SELECT * FROM produtos WHERE valor BETWEEN ?1 AND ?2", nativeQuery = true)
 	List<Produto> findProductBetweenPrice(BigDecimal menor, BigDecimal maior);
 
 }
