@@ -1,5 +1,6 @@
 package com.produtos.apirest.resources;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -22,23 +23,25 @@ import com.produtos.apirest.repository.ProdutoRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@CrossOrigin(origins = "*")
-@RestController
-@RequestMapping(value="/api")
-@Api(value="API REST Produtos")
+// É o controller
+// Classe responsável por receber as requisições http
+@CrossOrigin(origins = "*") // Liberando todos os domínios para acessarem a API
+@RestController // Classe que recebe requisições http restful
+@RequestMapping(value="/api") // Uri padrão para a api
+@Api(value="API REST Produtos") // Dando um título para a API, swagger
 public class ProdutoResource {
 	
-	@Autowired
+	@Autowired // Importar o repository do produto, para utilizar os métodos e conectar com o banco de dados
 	ProdutoRepository produtoRepository;
 	
 	@ApiOperation(value="Retorna uma lista de Produtos")
-	@GetMapping("/produtos")
+	@GetMapping("/produtos") // Método GET que retorna a lista de todos os produtos
 	public List<Produto> listaProdutos(){
 		return produtoRepository.findAll();
 	}
 	
 	@ApiOperation(value="Retorna um produto unico")
-	@GetMapping("/produto/{id}")
+	@GetMapping("/produto/{id}") // Método GET que retorna uma produto com ID específico
 	public Produto listaProdutoUnico(@PathVariable(value="id") long id){
 		return produtoRepository.findById(id);
 	}
@@ -60,6 +63,11 @@ public class ProdutoResource {
 	public Produto atualizaProduto(@RequestBody @Valid Produto produto) {
 		return produtoRepository.save(produto);
 	}
-	 
+
+	@GetMapping("/produtos/valor/{menor}/{maior}")
+	@ApiOperation(value = "Procura produtos entre valores mínimo e máximo.")
+	public List<Produto> procurarEntreValor(@PathVariable(value="menor") BigDecimal menor, @PathVariable(value="maior") BigDecimal maior) {
+		return produtoRepository.findProductBetweenPrice(menor, maior);
+	}
 
 }

@@ -19,22 +19,23 @@ import java.util.ArrayList;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-	
+
+    // O Docket é uma classe adicionada no pom.xml e importada por aqui, para a aplicação
 	@Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.produtos.apirest"))
-                .paths(regex("/api.*"))
+                .apis(RequestHandlerSelectors.basePackage("com.produtos.apirest")) // Pacote onde está as classes Java
+                .paths(regex("/api.*")) // Qual caminho o swaggertype vai acessar
                 .build()
-                .apiInfo(metaInfo());
+                .apiInfo(metaInfo()); // Método abaixo criado
     }
 
     private ApiInfo metaInfo() {
 
         ApiInfo apiInfo = new ApiInfo(
                 "Produtos API REST",
-                "API REST de cadastro de produtos.",
+                "API REST de cadastro e consulta de produtos.",
                 "1.0",
                 "Terms of Service",
                 new Contact("Lucas Ângelo", "https://github.com/Lucas-Angelo",
